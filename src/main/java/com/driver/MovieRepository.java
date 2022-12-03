@@ -64,17 +64,8 @@ public class MovieRepository {
     }
 
     public void deleteAllDirectors(){
-        HashSet<String> movies=new HashSet<>();
-
-        for(String director : directorMovie.keySet()){
-            for(String movie : directorMovie.get(director)){
-                movies.add(movie);
-            }
-        }
-        for(String movie:movies){
-            if (movieMap.containsKey(movie)) {
-                movieMap.remove(movie);
-            }
+        for(String director : directorMap.keySet()){
+            deleteDirectorByName(director);
         }
     }
 }
